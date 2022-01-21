@@ -38,6 +38,7 @@
     <div>
         <label for="tel">Phone input type:</label>
         <input type="tel" id="tel" name="tel">
+        <error-output class="mobile-error"></error-output>
     </div>
     <div>
         <label for="search">Search input type:</label>
@@ -77,7 +78,7 @@
     /** email validation */
     const email = document.querySelector("#email");
     const emailError = document.querySelector(".email-error");
-    text.addEventListener('input', function () {
+    email.addEventListener('input', function () {
         let emailRegex = RegExp('^[a-z.+_-]+[.a-z0-9]*+@[a-z0-9]+[.a-z]+[.a-z0-9]*$');
         if (emailRegex.test(email.value)) {
             emailError.textContent = "";
@@ -85,7 +86,19 @@
             emailError.textContent = "Email is incorrect";
         }
     });
- /**
+    
+    /** mobile format validation */
+    const tel = document.querySelector("#tel");
+    const telError = document.querySelector(".mobile-error");
+    tel.addEventListener('input', function () {
+        let telRegex = RegExp('^[0-9]{2}+[ ][0-9]{10}$');
+        if (telRegex.test(tel.value)) {
+            telError.textContent = "";
+        } else {
+            telError.textContent = "Mobile number is incorrect";
+        }
+    });
+
 
 </script>
 </body>
