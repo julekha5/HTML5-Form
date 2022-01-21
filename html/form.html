@@ -104,7 +104,7 @@
     const pass = document.querySelector('#pwd');
     const passError = document.querySelector('.pass-error');
     pass.addEventListener('input', function () {
-        let passRegex = RegExp('^[a-z0-9]{8,}$');
+        let passRegex = RegExp("^(?=.*[A-Z])(?=.*[0-9])(?=.*[!#@%^&*(){}])[a-zA-Z0-9+-_!@#$%^&*(){}'.,]{8,}$");
         if (passRegex.test(pass.value))
             passError.textContent = "";
         else passError.textContent = "Password is incorrect";
