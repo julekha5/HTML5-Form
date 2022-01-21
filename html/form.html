@@ -20,6 +20,7 @@
     <div>
         <label for="pwd">Password input type:</label>
         <input type="password" id="pwd" name="pwd">
+        <error-output class="pass-error"></error-output>
     </div>
     <div>
         <label for="email">Email input type:</label>
@@ -86,7 +87,7 @@
             emailError.textContent = "Email is incorrect";
         }
     });
-    
+
     /** mobile format validation */
     const tel = document.querySelector("#tel");
     const telError = document.querySelector(".mobile-error");
@@ -99,6 +100,15 @@
         }
     });
 
+    /** Password  validation */
+    const pass = document.querySelector('#pwd');
+    const passError = document.querySelector('.pass-error');
+    pass.addEventListener('input', function () {
+        let passRegex = RegExp('^[a-z0-9]{8,}$');
+        if (passRegex.test(pass.value))
+            passError.textContent = "";
+        else passError.textContent = "Password is incorrect";
+    });
 
 </script>
 </body>
